@@ -1,0 +1,6 @@
+[book]
+authors = ["Luis Sanchez"]
+language = "es"
+multilingual = false
+src = "src"
+title = "Redes"
