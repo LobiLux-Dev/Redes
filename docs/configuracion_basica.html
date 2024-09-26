@@ -173,77 +173,190 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="configuración-basica"><a class="header" href="#configuración-basica">Configuración Basica</a></h1>
-<h1 id="router"><a class="header" href="#router">Router</a></h1>
-<pre><code>Router&gt; enable
-Router# configure terminal
-</code></pre>
-<h4 id="hostname"><a class="header" href="#hostname">Hostname</a></h4>
-<pre><code>Router (config)# hostname &lt;nombre_del_equipo&gt;
-</code></pre>
-<h4 id="contraseñas"><a class="header" href="#contraseñas">Contraseñas</a></h4>
-<pre><code>Router (config)# line vty &lt;linea_de_inicio:int(0, 15)&gt; &lt;linea_de_fin:int(0, 15)&gt;
-Router (config-line)# password &lt;contraseña_del_vty&gt;
-Router (config-line)# login
-Router (config-line)# exit
-
-Router (config)# line console 0
-Router (config-line)# password &lt;contraseña_de_la_consola&gt;
-Router (config-line)# login
-Router (config-line)# exit
-
-Router (config)# enable password/secret enable
-Router (config)# service password encription
-</code></pre>
-<h4 id="mensaje-del-día"><a class="header" href="#mensaje-del-día">Mensaje del día</a></h4>
-<pre><code>Router (config)# banner motd #Estoy en el Router#
-</code></pre>
-<h4 id="configuración-de-interfaces"><a class="header" href="#configuración-de-interfaces">Configuración de interfaces</a></h4>
+                        <p>Aquí está el formato final para la configuración de dispositivos Cisco, incluyendo routers y switches:</p>
+<h1 id="configuración-básica-de-dispositivos-cisco-router-y-switch"><a class="header" href="#configuración-básica-de-dispositivos-cisco-router-y-switch">Configuración Básica de Dispositivos Cisco (Router y Switch)</a></h1>
+<h2 id="configuración-del-router"><a class="header" href="#configuración-del-router">Configuración del Router</a></h2>
+<h3 id="configuración-de-interfaces"><a class="header" href="#configuración-de-interfaces">Configuración de Interfaces</a></h3>
+<ol>
+<li>
+<p><strong>Seleccionar la interfaz</strong>:</p>
+<ul>
+<li>Selecciona la interfaz física del router para asignarle configuraciones específicas.</li>
+</ul>
 <pre><code>Router (config)# interface &lt;puerto_a_configurar&gt;
-Router (config)# ip address &lt;ip&gt; &lt;mascara_de_subred&gt;
-Router (config)# no shutdown
 </code></pre>
-<h4 id="guardar-la-configuracion-y-reiniciar"><a class="header" href="#guardar-la-configuracion-y-reiniciar">Guardar la configuracion y reiniciar</a></h4>
-<pre><code>Router (config)# end
-Router# copy running-config startup-config
-Router# reload
+<p><strong>Variables:</strong></p>
+<ul>
+<li><strong><code>&lt;puerto_a_configurar&gt;</code></strong>: La interfaz que se va a configurar. Ejemplo: <code>GigabitEthernet0/1</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Asignar dirección IP y máscara de subred</strong>:</p>
+<ul>
+<li>Asigna una dirección IP y una máscara de subred a la interfaz seleccionada.</li>
+</ul>
+<pre><code>Router (config)# ip address &lt;ip&gt; &lt;mascara_de_subred&gt;
 </code></pre>
-<h1 id="switch"><a class="header" href="#switch">Switch</a></h1>
-<pre><code>Switch&gt; enable
-Switch# configure terminal
+<p><strong>Variables:</strong></p>
+<ul>
+<li><strong><code>&lt;ip&gt;</code></strong>: La dirección IP a asignar. Ejemplo: <code>192.168.1.1</code>.</li>
+<li><strong><code>&lt;mascara_de_subred&gt;</code></strong>: La máscara de subred. Ejemplo: <code>255.255.255.0</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Activar la interfaz</strong>:</p>
+<ul>
+<li>Habilita la interfaz para que empiece a funcionar.</li>
+</ul>
+<pre><code>Router (config)# no shutdown
 </code></pre>
-<h4 id="hostname-1"><a class="header" href="#hostname-1">Hostname</a></h4>
-<pre><code>Switch (config)# hostname &lt;nombre_del_equipo&gt;
-</code></pre>
-<h4 id="contraseñas-1"><a class="header" href="#contraseñas-1">Contraseñas</a></h4>
-<pre><code>Switch (config)# line vty &lt;linea_de_inicio:int(0, 15)&gt; &lt;linea_de_fin:int(0, 15)&gt;
-Switch (config-line)# password &lt;contraseña_del_vty&gt;
-Switch (config-line)# login
-Switch (config-line)# exit
-
-Switch (config)# line console 0
-Switch (config-line)# password &lt;contraseña_de_la_consola&gt;
-Switch (config-line)# login
-Switch (config-line)# exit
-
-Switch (config)# enable password/secret enable
-</code></pre>
-<h4 id="mensaje-del-día-1"><a class="header" href="#mensaje-del-día-1">Mensaje del día</a></h4>
-<pre><code>Switch (config)# banner motd #Estoy en el Switch#
-</code></pre>
-<h4 id="configuración-de-vlan"><a class="header" href="#configuración-de-vlan">Configuración de vlan</a></h4>
+</li>
+</ol>
+<h2 id="configuración-del-switch"><a class="header" href="#configuración-del-switch">Configuración del Switch</a></h2>
+<h3 id="configuración-de-vlan"><a class="header" href="#configuración-de-vlan">Configuración de VLAN</a></h3>
+<ol>
+<li>
+<p><strong>Seleccionar la interfaz VLAN</strong>:</p>
+<ul>
+<li>Selecciona la VLAN predeterminada del switch.</li>
+</ul>
 <pre><code>Switch (config)# interface vlan1
-Switch (config)# ip address &lt;ip&gt; &lt;mascara_de_subred&gt;
+</code></pre>
+</li>
+<li>
+<p><strong>Asignar dirección IP a la VLAN</strong>:</p>
+<ul>
+<li>Configura la IP y la máscara de subred para la VLAN.</li>
+</ul>
+<pre><code>Switch (config)# ip address &lt;ip&gt; &lt;mascara_de_subred&gt;
 Switch (config)# no shutdown
 </code></pre>
-<h4 id="configurar-la-puerta-de-enlace-del-switch"><a class="header" href="#configurar-la-puerta-de-enlace-del-switch">Configurar la puerta de enlace del switch</a></h4>
+<p><strong>Variables:</strong></p>
+<ul>
+<li><strong><code>&lt;ip&gt;</code></strong>: La IP de la VLAN. Ejemplo: <code>192.168.1.2</code>.</li>
+<li><strong><code>&lt;mascara_de_subred&gt;</code></strong>: La máscara de subred. Ejemplo: <code>255.255.255.0</code>.</li>
+</ul>
+</li>
+</ol>
+<h3 id="configurar-la-puerta-de-enlace"><a class="header" href="#configurar-la-puerta-de-enlace">Configurar la Puerta de Enlace</a></h3>
+<ul>
+<li>Configura la puerta de enlace predeterminada para que el switch se comunique con redes externas.</li>
+</ul>
 <pre><code>Switch (config)# ip default-gateway &lt;ip_del_router&gt;
 </code></pre>
-<h4 id="guardar-la-configuracion-y-reiniciar-1"><a class="header" href="#guardar-la-configuracion-y-reiniciar-1">Guardar la configuracion y reiniciar</a></h4>
-<pre><code>Switch (config)# end
-Switch# copy running-config startup-config
-Switch# reload
+<p><strong>Variables:</strong></p>
+<ul>
+<li><strong><code>&lt;ip_del_router&gt;</code></strong>: IP del router que actúa como puerta de enlace. Ejemplo: <code>192.168.1.254</code>.</li>
+</ul>
+<h2 id="configuración-común-para-ambos-dispositivos"><a class="header" href="#configuración-común-para-ambos-dispositivos">Configuración Común para Ambos Dispositivos</a></h2>
+<h3 id="acceder-al-modo-de-configuración"><a class="header" href="#acceder-al-modo-de-configuración">Acceder al Modo de Configuración</a></h3>
+<ol>
+<li>
+<p><strong>Modo privilegiado</strong>:</p>
+<ul>
+<li>Otorga acceso completo a la configuración.</li>
+</ul>
+<pre><code>&gt; enable
 </code></pre>
+</li>
+<li>
+<p><strong>Modo de configuración global</strong>:</p>
+<ul>
+<li>Permite realizar cambios en la configuración del dispositivo.</li>
+</ul>
+<pre><code># configure terminal
+</code></pre>
+</li>
+</ol>
+<h3 id="cambiar-el-nombre-del-dispositivo-hostname"><a class="header" href="#cambiar-el-nombre-del-dispositivo-hostname">Cambiar el Nombre del Dispositivo (Hostname)</a></h3>
+<ul>
+<li>Cambia el nombre del dispositivo para facilitar su identificación.</li>
+</ul>
+<pre><code>(config)# hostname &lt;nombre_del_equipo&gt;
+</code></pre>
+<p><strong>Variables:</strong></p>
+<ul>
+<li><strong><code>&lt;nombre_del_equipo&gt;</code></strong>: El nuevo nombre del dispositivo. Ejemplo: <code>Switch01</code>, <code>RouterA</code>.</li>
+</ul>
+<h3 id="configuración-de-contraseñas"><a class="header" href="#configuración-de-contraseñas">Configuración de Contraseñas</a></h3>
+<ol>
+<li>
+<p><strong>Contraseña para acceso remoto (líneas VTY)</strong>:</p>
+<ul>
+<li>Configura la contraseña para accesos remotos, como Telnet o SSH.</li>
+</ul>
+<pre><code>(config)# line vty &lt;linea_de_inicio&gt; &lt;linea_de_fin&gt;
+(config-line)# password &lt;contraseña_del_vty&gt;
+(config-line)# login
+(config-line)# exit
+</code></pre>
+<p><strong>Variables:</strong></p>
+<ul>
+<li><strong><code>&lt;linea_de_inicio&gt; &lt;linea_de_fin&gt;</code></strong>: El rango de líneas VTY que se configuran para acceso remoto, que puede ir desde <code>0</code> hasta <code>15</code>, admitiendo un total de 16 líneas. Ejemplo: <code>0 4</code> para configurar las primeras cinco líneas VTY.</li>
+<li><strong><code>&lt;contraseña_del_vty&gt;</code></strong>: La contraseña asignada.</li>
+</ul>
+</li>
+<li>
+<p><strong>Contraseña para acceso por consola</strong>:</p>
+<ul>
+<li>Define una contraseña para la consola física.</li>
+</ul>
+<pre><code>(config)# line console 0
+(config-line)# password &lt;contraseña_de_la_consola&gt;
+(config-line)# login
+(config-line)# exit
+</code></pre>
+<p><strong>Variables:</strong></p>
+<ul>
+<li><strong><code>&lt;contraseña_de_la_consola&gt;</code></strong>: La contraseña para el acceso físico.</li>
+</ul>
+</li>
+<li>
+<p><strong>Contraseña para el modo privilegiado</strong>:</p>
+<ul>
+<li>Configura la contraseña para acceder al modo privilegiado. Puedes utilizar una de las dos opciones: <code>enable password</code> para establecer una contraseña simple, o <code>enable secret</code> para crear una contraseña encriptada, lo que proporciona mayor seguridad.</li>
+</ul>
+<p><strong>Advertencia</strong>: elige solo una de estas opciones; utilizar ambas simultáneamente puede causar confusiones en la autenticación y anular la efectividad de la configuración.</p>
+<pre><code>(config)# enable password &lt;contraseña&gt;
+(config)# enable secret &lt;contraseña&gt;
+</code></pre>
+</li>
+<li>
+<p><strong>Cifrar todas las contraseñas</strong>:</p>
+<ul>
+<li>Cifra todas las contraseñas visibles en el archivo de configuración.</li>
+</ul>
+<pre><code>(config)# service password-encryption
+</code></pre>
+</li>
+</ol>
+<h3 id="configurar-mensaje-del-día-motd"><a class="header" href="#configurar-mensaje-del-día-motd">Configurar Mensaje del Día (MOTD)</a></h3>
+<ul>
+<li>Configura un mensaje de advertencia o bienvenida que se muestra a todos los usuarios al conectarse al dispositivo. Se puede utilizar cualquier símbolo como delimitador de inicio y de fin para el mensaje.</li>
+</ul>
+<pre><code>(config)# banner motd #Este es un mensaje de bienvenida#
+</code></pre>
+<h3 id="guardar-la-configuración-y-reiniciar-el-dispositivo"><a class="header" href="#guardar-la-configuración-y-reiniciar-el-dispositivo">Guardar la Configuración y Reiniciar el Dispositivo</a></h3>
+<ol>
+<li>
+<p><strong>Salir del modo de configuración</strong>:</p>
+<pre><code>(config)# end
+</code></pre>
+</li>
+<li>
+<p><strong>Guardar la configuración</strong>:</p>
+<ul>
+<li>Guarda la configuración actual.</li>
+</ul>
+<pre><code># copy running-config startup-config
+</code></pre>
+</li>
+<li>
+<p><strong>Reiniciar el dispositivo</strong>:</p>
+<pre><code># reload
+</code></pre>
+</li>
+</ol>
 
                     </main>
 

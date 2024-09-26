@@ -4,3 +4,6 @@ language = "es"
 multilingual = false
 src = "src"
 title = "Redes"
+
+[build]
+build-dir = "docs"
