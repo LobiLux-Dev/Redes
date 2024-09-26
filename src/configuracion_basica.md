@@ -1,5 +1,3 @@
-Aquí está el formato final para la configuración de dispositivos Cisco, incluyendo routers y switches:
-
 # Configuración Básica de Dispositivos Cisco (Router y Switch)
 
 ## Configuración del Router
