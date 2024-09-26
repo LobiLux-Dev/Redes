@@ -1,30 +1,142 @@
 # Comandos
 
-| **Comando**                            | **Abreviación**  | **Parámetros**                    | **Ejemplo**                            | **Descripción**                                                                                              | **Tipo de Usuario**  |
-| -------------------------------------- | ---------------- | --------------------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------ | -------------------- |
-| **enable**                             | `en`             | N/A                               | `enable`                               | Cambia al modo privilegiado, donde puedes ejecutar comandos de administración avanzada.                      | `>`                  |
-| **configure terminal**                 | `conf t`         | N/A                               | `configure terminal`                   | Entra al modo de configuración global para modificar la configuración del switch.                            | `#`                  |
-| **hostname**                           | N/A              | `nombre_del_switch`               | `hostname Switch01`                    | Cambia el nombre del switch.                                                                                 | `config #`           |
-| **interface**                          | `int`            | `interface_type interface_number` | `interface FastEthernet 0/1`           | Entra en el modo de configuración para una interfaz específica, como un puerto físico.                       | `config #`           |
-| **ip address**                         | `ip add`         | `ip_address subnet_mask`          | `ip address 192.168.1.1 255.255.255.0` | Asigna una dirección IP a la interfaz seleccionada.                                                          | `config #`           |
-| **no shutdown**                        | `no shut`        | N/A                               | `no shutdown`                          | Habilita una interfaz que estaba deshabilitada.                                                              | `config #`           |
-| **switchport mode access**             | N/A              | N/A                               | `switchport mode access`               | Configura la interfaz como un puerto de acceso (para conectar dispositivos finales como PCs).                | `config #`           |
-| **switchport mode trunk**              | N/A              | N/A                               | `switchport mode trunk`                | Configura la interfaz como un puerto troncal (para conectar switches entre sí).                              | `config #`           |
-| **switchport access vlan**             | N/A              | `vlan_id`                         | `switchport access vlan 10`            | Asigna una VLAN específica a un puerto de acceso.                                                            | `config #`           |
-| **show running-config**                | `show run`       | N/A                               | `show running-config`                  | Muestra la configuración actual en ejecución del switch.                                                     | `#`                  |
-| **show ip interface brief**            | `show ip int br` | N/A                               | `show ip interface brief`              | Muestra un resumen del estado y configuración IP de todas las interfaces.                                    | `#`                  |
-| **copy running-config startup-config** | `copy run start` | N/A                               | `copy running-config startup-config`   | Guarda la configuración actual en la memoria de inicio (para que persista después de un reinicio).           | `#`                  |
-| **vlan**                               | N/A              | `vlan_id`                         | `vlan 10`                              | Crea o selecciona una VLAN con el identificador especificado.                                                | `config #`           |
-| **exit**                               | N/A              | N/A                               | `exit`                                 | Sale del modo actual (como el modo de configuración de interfaz o global).                                   | `>`, `#`, `config #` |
-| **reload**                             | N/A              | N/A                               | `reload`                               | Reinicia el switch.                                                                                          | `#`                  |
-| **enable secret**                      | N/A              | `password`                        | `enable secret contraseña_segura`      | Configura una contraseña cifrada para acceder al modo privilegiado del switch.                               | `config #`           |
-| **spanning-tree**                      | `spanning-t`     | `mode rapid-pvst`                 | `spanning-tree mode rapid-pvst`        | Habilita el protocolo spanning-tree en modo Rapid PVST, que ayuda a prevenir bucles en la red.               | `config #`           |
-| **show vlan brief**                    | N/A              | N/A                               | `show vlan brief`                      | Muestra un resumen de las VLANs configuradas en el switch.                                                   | `#`                  |
-| **description**                        | `desc`           | `text_description`                | `description Conexión a servidor`      | Añade una descripción a la interfaz para identificar su propósito.                                           | `config #`           |
-| **show mac address-table**             | `show mac`       | N/A                               | `show mac address-table`               | Muestra la tabla de direcciones MAC asociadas a las interfaces del switch.                                   | `#`                  |
-| **show version**                       | `show ver`       | N/A                               | `show version`                         | Muestra información sobre el sistema operativo Cisco, el hardware y el tiempo de actividad del switch.       | `#`                  |
-| **line vty**                           | `line`           | `line_range`                      | `line vty 0 4`                         | Configura las líneas de acceso virtual (VTY), utilizadas para conexiones remotas como Telnet o SSH.          | `config #`           |
-| **login**                              | N/A              | N/A                               | `login`                                | Habilita el requerimiento de contraseña para las conexiones VTY.                                             | `config #`           |
-| **password**                           | N/A              | `password`                        | `password contraseña_simple`           | Establece una contraseña simple para el acceso a las líneas VTY o la consola física.                         | `config #`           |
-| **show interfaces**                    | `show int`       | N/A                               | `show interfaces FastEthernet 0/1`     | Muestra información detallada sobre una interfaz específica, incluyendo su estado y estadísticas de tráfico. | `#`                  |
-| **shutdown**                           | `shut`           | N/A                               | `shutdown`                             | Deshabilita una interfaz de red.                                                                             | `config #`           |
+| **Comando**                            | **Ejemplo**                            | **Tipo de Usuario**   |
+| -------------------------------------- | -------------------------------------- | --------------------- |
+| **?**                                  | `?`                                    | `>`, `#`, `(config)#` |
+| **banner motd**                        | `banner motd #Acceso Restringido#`     | `(config)#`           |
+| **configure terminal**                 | `configure terminal`                   | `#`                   |
+| **copy running-config startup-config** | `copy running-config startup-config`   | `#`                   |
+| **description**                        | `description Conexión a servidor`      | `(config)#`           |
+| **do**                                 | `do show running-config`               | `(config)#`           |
+| **enable password**                    | `enable password contraseña_simple`    | `(config)#`           |
+| **enable secret**                      | `enable secret contraseña_segura`      | `(config)#`           |
+| **enable**                             | `enable`                               | `>`                   |
+| **exit**                               | `exit`                                 | `>`, `#`, `(config)#` |
+| **hostname**                           | `hostname Switch01`                    | `(config)#`           |
+| **interface**                          | `interface FastEthernet 0/1`           | `(config)#`           |
+| **ip address**                         | `ip address 192.168.1.1 255.255.255.0` | `(config)#`           |
+| **line console**                       | `line console 0`                       | `(config)#`           |
+| **line vty**                           | `line vty 0 4`                         | `(config)#`           |
+| **login**                              | `login`                                | `(config)#`           |
+| **no shutdown**                        | `no shutdown`                          | `(config)#`           |
+| **password**                           | `password contraseña_simple`           | `(config)#`           |
+| **reload**                             | `reload`                               | `#`                   |
+| **service password-encryption**        | `service password-encryption`          | `(config)#`           |
+| **show running-config**                | `show running-config`                  | `#`                   |
+| **shutdown**                           | `shutdown`                             | `(config)#`           |
+
+## Descripción de los Comandos
+
+- **`?`**:
+  Muestra una lista de los comandos disponibles en el modo actual.
+
+- **`banner motd`**:
+  Configura un mensaje de advertencia o bienvenida que se muestra a todos los usuarios al conectarse al dispositivo. Se puede utilizar cualquier símbolo como delimitador de inicio y de fin para el mensaje.
+
+  - **Parámetros**:
+    - `mensaje`: Texto que se mostrará como mensaje de bienvenida.
+
+- **`configure terminal`**:
+  Accede al modo de configuración global para modificar la configuración del dispositivo.
+
+  - **Abreviación**: `conf t`
+
+- **`copy running-config startup-config`**:
+  Guarda la configuración actual en la memoria de inicio, asegurando que persista después de un reinicio.
+
+  - **Abreviación**: `copy run start`
+
+- **`description`**:
+  Añade una descripción a la interfaz para facilitar la identificación de su propósito.
+
+  - **Abreviación**: `desc`
+  - **Parámetros**:
+    - `texto_descripción`: Texto que describe la función de la interfaz.
+
+- **`do`**:
+  Permite ejecutar comandos de nivel privilegiado desde el modo de configuración global.
+
+  - **Parámetros**:
+    - `comando`: Comando que deseas ejecutar.
+
+- **`enable`**:
+  Cambia al modo privilegiado, donde se pueden ejecutar comandos de administración avanzada.
+
+  - **Abreviación**: `en`
+
+- **`enable password`**:
+  Configura una contraseña simple para acceder al modo privilegiado del dispositivo.
+
+  - **Parámetros**:
+    - `contraseña`: La contraseña que se establecerá.
+
+- **`enable secret`**:
+  Establece una contraseña cifrada para acceder al modo privilegiado del dispositivo.
+
+  - **Parámetros**:
+    - `contraseña`: La contraseña cifrada que se utilizará.
+
+- **`exit`**:
+  Sale del modo actual, ya sea de configuración de interfaz o global.
+
+- **`hostname`**:
+  Cambia el nombre del dispositivo.
+
+  - **Parámetros**:
+    - `nombre_del_dispositivo`: El nuevo nombre que se asignará al dispositivo.
+
+- **`interface`**:
+  Entra en el modo de configuración de una interfaz específica, como un puerto físico.
+
+  - **Abreviación**: `int`
+  - **Parámetros**:
+    - `tipo_interfaz número_interfaz`: Especifica el tipo y número de la interfaz a configurar.
+
+- **`ip address`**:
+  Asigna una dirección IP a la interfaz seleccionada.
+
+  - **Abreviación**: `ip add`
+  - **Parámetros**:
+    - `ip_dirección máscara_subred`: La dirección IP y la máscara de subred que se asignarán.
+
+- **`line console`**:
+  Configura la línea de consola física para establecer una contraseña de acceso.
+
+  - **Parámetros**:
+    - `número_línea`: El número de línea de consola que se configurará (siempre 0).
+
+- **`line vty`**:
+  Configura las líneas de acceso virtual (VTY) utilizadas para conexiones remotas, como Telnet o SSH.
+
+  - **Abreviación**: `line`
+  - **Parámetros**:
+    - `rango_línea`: Especifica el rango de líneas VTY que se configuran para acceso remoto, que puede ir desde `0` hasta `15`, admitiendo un total de 16 líneas. Ejemplo: `0 4` para configurar las primeras cinco líneas VTY.
+
+- **`login`**:
+  Habilita el requerimiento de contraseña para las conexiones de consola o VTY.
+
+- **`no shutdown`**:
+  Activa una interfaz que estaba deshabilitada.
+
+  - **Abreviación**: `no shut`
+
+- **`password`**:
+  Establece una contraseña simple para el acceso a las líneas VTY o la consola física.
+
+  - **Parámetros**:
+    - `contraseña`: La contraseña que se establecerá para acceso.
+
+- **`reload`**:
+  Reinicia el dispositivo.
+
+- **`service password-encryption`**:
+  Encripta las contraseñas en la configuración del dispositivo para mejorar la seguridad.
+
+- **`show running-config`**:
+  Muestra la configuración actual en ejecución del dispositivo.
+
+  - **Abreviación**: `show run`
+
+- **`shutdown`**:
+  Deshabilita una interfaz de red.
+  - **Abreviación**: `shut`

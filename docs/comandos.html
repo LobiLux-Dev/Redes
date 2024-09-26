@@ -174,35 +174,222 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="comandos"><a class="header" href="#comandos">Comandos</a></h1>
-<div class="table-wrapper"><table><thead><tr><th><strong>Comando</strong></th><th><strong>Abreviación</strong></th><th><strong>Parámetros</strong></th><th><strong>Ejemplo</strong></th><th><strong>Descripción</strong></th><th><strong>Tipo de Usuario</strong></th></tr></thead><tbody>
-<tr><td><strong>enable</strong></td><td><code>en</code></td><td>N/A</td><td><code>enable</code></td><td>Cambia al modo privilegiado, donde puedes ejecutar comandos de administración avanzada.</td><td><code>&gt;</code></td></tr>
-<tr><td><strong>configure terminal</strong></td><td><code>conf t</code></td><td>N/A</td><td><code>configure terminal</code></td><td>Entra al modo de configuración global para modificar la configuración del switch.</td><td><code>#</code></td></tr>
-<tr><td><strong>hostname</strong></td><td>N/A</td><td><code>nombre_del_switch</code></td><td><code>hostname Switch01</code></td><td>Cambia el nombre del switch.</td><td><code>config #</code></td></tr>
-<tr><td><strong>interface</strong></td><td><code>int</code></td><td><code>interface_type interface_number</code></td><td><code>interface FastEthernet 0/1</code></td><td>Entra en el modo de configuración para una interfaz específica, como un puerto físico.</td><td><code>config #</code></td></tr>
-<tr><td><strong>ip address</strong></td><td><code>ip add</code></td><td><code>ip_address subnet_mask</code></td><td><code>ip address 192.168.1.1 255.255.255.0</code></td><td>Asigna una dirección IP a la interfaz seleccionada.</td><td><code>config #</code></td></tr>
-<tr><td><strong>no shutdown</strong></td><td><code>no shut</code></td><td>N/A</td><td><code>no shutdown</code></td><td>Habilita una interfaz que estaba deshabilitada.</td><td><code>config #</code></td></tr>
-<tr><td><strong>switchport mode access</strong></td><td>N/A</td><td>N/A</td><td><code>switchport mode access</code></td><td>Configura la interfaz como un puerto de acceso (para conectar dispositivos finales como PCs).</td><td><code>config #</code></td></tr>
-<tr><td><strong>switchport mode trunk</strong></td><td>N/A</td><td>N/A</td><td><code>switchport mode trunk</code></td><td>Configura la interfaz como un puerto troncal (para conectar switches entre sí).</td><td><code>config #</code></td></tr>
-<tr><td><strong>switchport access vlan</strong></td><td>N/A</td><td><code>vlan_id</code></td><td><code>switchport access vlan 10</code></td><td>Asigna una VLAN específica a un puerto de acceso.</td><td><code>config #</code></td></tr>
-<tr><td><strong>show running-config</strong></td><td><code>show run</code></td><td>N/A</td><td><code>show running-config</code></td><td>Muestra la configuración actual en ejecución del switch.</td><td><code>#</code></td></tr>
-<tr><td><strong>show ip interface brief</strong></td><td><code>show ip int br</code></td><td>N/A</td><td><code>show ip interface brief</code></td><td>Muestra un resumen del estado y configuración IP de todas las interfaces.</td><td><code>#</code></td></tr>
-<tr><td><strong>copy running-config startup-config</strong></td><td><code>copy run start</code></td><td>N/A</td><td><code>copy running-config startup-config</code></td><td>Guarda la configuración actual en la memoria de inicio (para que persista después de un reinicio).</td><td><code>#</code></td></tr>
-<tr><td><strong>vlan</strong></td><td>N/A</td><td><code>vlan_id</code></td><td><code>vlan 10</code></td><td>Crea o selecciona una VLAN con el identificador especificado.</td><td><code>config #</code></td></tr>
-<tr><td><strong>exit</strong></td><td>N/A</td><td>N/A</td><td><code>exit</code></td><td>Sale del modo actual (como el modo de configuración de interfaz o global).</td><td><code>&gt;</code>, <code>#</code>, <code>config #</code></td></tr>
-<tr><td><strong>reload</strong></td><td>N/A</td><td>N/A</td><td><code>reload</code></td><td>Reinicia el switch.</td><td><code>#</code></td></tr>
-<tr><td><strong>enable secret</strong></td><td>N/A</td><td><code>password</code></td><td><code>enable secret contraseña_segura</code></td><td>Configura una contraseña cifrada para acceder al modo privilegiado del switch.</td><td><code>config #</code></td></tr>
-<tr><td><strong>spanning-tree</strong></td><td><code>spanning-t</code></td><td><code>mode rapid-pvst</code></td><td><code>spanning-tree mode rapid-pvst</code></td><td>Habilita el protocolo spanning-tree en modo Rapid PVST, que ayuda a prevenir bucles en la red.</td><td><code>config #</code></td></tr>
-<tr><td><strong>show vlan brief</strong></td><td>N/A</td><td>N/A</td><td><code>show vlan brief</code></td><td>Muestra un resumen de las VLANs configuradas en el switch.</td><td><code>#</code></td></tr>
-<tr><td><strong>description</strong></td><td><code>desc</code></td><td><code>text_description</code></td><td><code>description Conexión a servidor</code></td><td>Añade una descripción a la interfaz para identificar su propósito.</td><td><code>config #</code></td></tr>
-<tr><td><strong>show mac address-table</strong></td><td><code>show mac</code></td><td>N/A</td><td><code>show mac address-table</code></td><td>Muestra la tabla de direcciones MAC asociadas a las interfaces del switch.</td><td><code>#</code></td></tr>
-<tr><td><strong>show version</strong></td><td><code>show ver</code></td><td>N/A</td><td><code>show version</code></td><td>Muestra información sobre el sistema operativo Cisco, el hardware y el tiempo de actividad del switch.</td><td><code>#</code></td></tr>
-<tr><td><strong>line vty</strong></td><td><code>line</code></td><td><code>line_range</code></td><td><code>line vty 0 4</code></td><td>Configura las líneas de acceso virtual (VTY), utilizadas para conexiones remotas como Telnet o SSH.</td><td><code>config #</code></td></tr>
-<tr><td><strong>login</strong></td><td>N/A</td><td>N/A</td><td><code>login</code></td><td>Habilita el requerimiento de contraseña para las conexiones VTY.</td><td><code>config #</code></td></tr>
-<tr><td><strong>password</strong></td><td>N/A</td><td><code>password</code></td><td><code>password contraseña_simple</code></td><td>Establece una contraseña simple para el acceso a las líneas VTY o la consola física.</td><td><code>config #</code></td></tr>
-<tr><td><strong>show interfaces</strong></td><td><code>show int</code></td><td>N/A</td><td><code>show interfaces FastEthernet 0/1</code></td><td>Muestra información detallada sobre una interfaz específica, incluyendo su estado y estadísticas de tráfico.</td><td><code>#</code></td></tr>
-<tr><td><strong>shutdown</strong></td><td><code>shut</code></td><td>N/A</td><td><code>shutdown</code></td><td>Deshabilita una interfaz de red.</td><td><code>config #</code></td></tr>
+<div class="table-wrapper"><table><thead><tr><th><strong>Comando</strong></th><th><strong>Ejemplo</strong></th><th><strong>Tipo de Usuario</strong></th></tr></thead><tbody>
+<tr><td><strong>?</strong></td><td><code>?</code></td><td><code>&gt;</code>, <code>#</code>, <code>(config)#</code></td></tr>
+<tr><td><strong>banner motd</strong></td><td><code>banner motd #Acceso Restringido#</code></td><td><code>(config)#</code></td></tr>
+<tr><td><strong>configure terminal</strong></td><td><code>configure terminal</code></td><td><code>#</code></td></tr>
+<tr><td><strong>copy running-config startup-config</strong></td><td><code>copy running-config startup-config</code></td><td><code>#</code></td></tr>
+<tr><td><strong>description</strong></td><td><code>description Conexión a servidor</code></td><td><code>(config)#</code></td></tr>
+<tr><td><strong>do</strong></td><td><code>do show running-config</code></td><td><code>(config)#</code></td></tr>
+<tr><td><strong>enable password</strong></td><td><code>enable password contraseña_simple</code></td><td><code>(config)#</code></td></tr>
+<tr><td><strong>enable secret</strong></td><td><code>enable secret contraseña_segura</code></td><td><code>(config)#</code></td></tr>
+<tr><td><strong>enable</strong></td><td><code>enable</code></td><td><code>&gt;</code></td></tr>
+<tr><td><strong>exit</strong></td><td><code>exit</code></td><td><code>&gt;</code>, <code>#</code>, <code>(config)#</code></td></tr>
+<tr><td><strong>hostname</strong></td><td><code>hostname Switch01</code></td><td><code>(config)#</code></td></tr>
+<tr><td><strong>interface</strong></td><td><code>interface FastEthernet 0/1</code></td><td><code>(config)#</code></td></tr>
+<tr><td><strong>ip address</strong></td><td><code>ip address 192.168.1.1 255.255.255.0</code></td><td><code>(config)#</code></td></tr>
+<tr><td><strong>line console</strong></td><td><code>line console 0</code></td><td><code>(config)#</code></td></tr>
+<tr><td><strong>line vty</strong></td><td><code>line vty 0 4</code></td><td><code>(config)#</code></td></tr>
+<tr><td><strong>login</strong></td><td><code>login</code></td><td><code>(config)#</code></td></tr>
+<tr><td><strong>no shutdown</strong></td><td><code>no shutdown</code></td><td><code>(config)#</code></td></tr>
+<tr><td><strong>password</strong></td><td><code>password contraseña_simple</code></td><td><code>(config)#</code></td></tr>
+<tr><td><strong>reload</strong></td><td><code>reload</code></td><td><code>#</code></td></tr>
+<tr><td><strong>service password-encryption</strong></td><td><code>service password-encryption</code></td><td><code>(config)#</code></td></tr>
+<tr><td><strong>show running-config</strong></td><td><code>show running-config</code></td><td><code>#</code></td></tr>
+<tr><td><strong>shutdown</strong></td><td><code>shutdown</code></td><td><code>(config)#</code></td></tr>
 </tbody></table>
 </div>
+<h2 id="descripción-de-los-comandos"><a class="header" href="#descripción-de-los-comandos">Descripción de los Comandos</a></h2>
+<ul>
+<li>
+<p><strong><code>?</code></strong>:
+Muestra una lista de los comandos disponibles en el modo actual.</p>
+</li>
+<li>
+<p><strong><code>banner motd</code></strong>:
+Configura un mensaje de advertencia o bienvenida que se muestra a todos los usuarios al conectarse al dispositivo. Se puede utilizar cualquier símbolo como delimitador de inicio y de fin para el mensaje.</p>
+<ul>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>mensaje</code>: Texto que se mostrará como mensaje de bienvenida.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>configure terminal</code></strong>:
+Accede al modo de configuración global para modificar la configuración del dispositivo.</p>
+<ul>
+<li><strong>Abreviación</strong>: <code>conf t</code></li>
+</ul>
+</li>
+<li>
+<p><strong><code>copy running-config startup-config</code></strong>:
+Guarda la configuración actual en la memoria de inicio, asegurando que persista después de un reinicio.</p>
+<ul>
+<li><strong>Abreviación</strong>: <code>copy run start</code></li>
+</ul>
+</li>
+<li>
+<p><strong><code>description</code></strong>:
+Añade una descripción a la interfaz para facilitar la identificación de su propósito.</p>
+<ul>
+<li><strong>Abreviación</strong>: <code>desc</code></li>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>texto_descripción</code>: Texto que describe la función de la interfaz.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>do</code></strong>:
+Permite ejecutar comandos de nivel privilegiado desde el modo de configuración global.</p>
+<ul>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>comando</code>: Comando que deseas ejecutar.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>enable</code></strong>:
+Cambia al modo privilegiado, donde se pueden ejecutar comandos de administración avanzada.</p>
+<ul>
+<li><strong>Abreviación</strong>: <code>en</code></li>
+</ul>
+</li>
+<li>
+<p><strong><code>enable password</code></strong>:
+Configura una contraseña simple para acceder al modo privilegiado del dispositivo.</p>
+<ul>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>contraseña</code>: La contraseña que se establecerá.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>enable secret</code></strong>:
+Establece una contraseña cifrada para acceder al modo privilegiado del dispositivo.</p>
+<ul>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>contraseña</code>: La contraseña cifrada que se utilizará.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>exit</code></strong>:
+Sale del modo actual, ya sea de configuración de interfaz o global.</p>
+</li>
+<li>
+<p><strong><code>hostname</code></strong>:
+Cambia el nombre del dispositivo.</p>
+<ul>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>nombre_del_dispositivo</code>: El nuevo nombre que se asignará al dispositivo.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>interface</code></strong>:
+Entra en el modo de configuración de una interfaz específica, como un puerto físico.</p>
+<ul>
+<li><strong>Abreviación</strong>: <code>int</code></li>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>tipo_interfaz número_interfaz</code>: Especifica el tipo y número de la interfaz a configurar.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>ip address</code></strong>:
+Asigna una dirección IP a la interfaz seleccionada.</p>
+<ul>
+<li><strong>Abreviación</strong>: <code>ip add</code></li>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>ip_dirección máscara_subred</code>: La dirección IP y la máscara de subred que se asignarán.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>line console</code></strong>:
+Configura la línea de consola física para establecer una contraseña de acceso.</p>
+<ul>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>número_línea</code>: El número de línea de consola que se configurará (siempre 0).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>line vty</code></strong>:
+Configura las líneas de acceso virtual (VTY) utilizadas para conexiones remotas, como Telnet o SSH.</p>
+<ul>
+<li><strong>Abreviación</strong>: <code>line</code></li>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>rango_línea</code>: Especifica el rango de líneas VTY que se configuran para acceso remoto, que puede ir desde <code>0</code> hasta <code>15</code>, admitiendo un total de 16 líneas. Ejemplo: <code>0 4</code> para configurar las primeras cinco líneas VTY.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>login</code></strong>:
+Habilita el requerimiento de contraseña para las conexiones de consola o VTY.</p>
+</li>
+<li>
+<p><strong><code>no shutdown</code></strong>:
+Activa una interfaz que estaba deshabilitada.</p>
+<ul>
+<li><strong>Abreviación</strong>: <code>no shut</code></li>
+</ul>
+</li>
+<li>
+<p><strong><code>password</code></strong>:
+Establece una contraseña simple para el acceso a las líneas VTY o la consola física.</p>
+<ul>
+<li><strong>Parámetros</strong>:
+<ul>
+<li><code>contraseña</code>: La contraseña que se establecerá para acceso.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>reload</code></strong>:
+Reinicia el dispositivo.</p>
+</li>
+<li>
+<p><strong><code>service password-encryption</code></strong>:
+Encripta las contraseñas en la configuración del dispositivo para mejorar la seguridad.</p>
+</li>
+<li>
+<p><strong><code>show running-config</code></strong>:
+Muestra la configuración actual en ejecución del dispositivo.</p>
+<ul>
+<li><strong>Abreviación</strong>: <code>show run</code></li>
+</ul>
+</li>
+<li>
+<p><strong><code>shutdown</code></strong>:
+Deshabilita una interfaz de red.</p>
+<ul>
+<li><strong>Abreviación</strong>: <code>shut</code></li>
+</ul>
+</li>
+</ul>
+
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
