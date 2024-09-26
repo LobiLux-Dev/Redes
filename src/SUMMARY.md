@@ -1,5 +1,9 @@
 # Summary
 
+# Glosario
+- [Glosario](./glosario.md)
+
+# Contenido
 - [Modos](./modos.md)
 - [Comandos](./comandos.md)
 - [Configuración Basica](./configuracion_basica.md)
